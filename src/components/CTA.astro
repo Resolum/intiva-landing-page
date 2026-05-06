@@ -1,0 +1,168 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="py-32 relative overflow-hidden bg-[#F9FAFB]">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+    <div
+      class="cta-container relative rounded-[3rem] bg-[#0D0B1A] overflow-hidden shadow-[0_40px_100px_rgba(13,11,26,0.3)] border border-white/10"
+    >
+      <div class="absolute inset-0 pointer-events-none">
+        <div
+          class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] cta-blob"
+        >
+        </div>
+        <div
+          class="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-accent/20 rounded-full blur-[100px] cta-blob"
+          style="animation-delay: 2s;"
+        >
+        </div>
+        <div
+          class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"
+        >
+        </div>
+        <div
+          class="absolute inset-0 bg-linear-to-b from-transparent via-[#0D0B1A]/50 to-[#0D0B1A]"
+        >
+        </div>
+      </div>
+
+      <div
+        class="relative z-10 px-6 py-20 md:py-32 text-center max-w-4xl mx-auto flex flex-col items-center"
+      >
+        <div
+          class="cta-element inline-flex items-center gap-3 px-6 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-10 shadow-lg"
+          style="--delay: 0.1s"
+        >
+          <span class="flex h-2.5 w-2.5 rounded-full bg-accent animate-pulse"
+          ></span>
+          <span
+            class="text-accent text-xs font-black tracking-[0.2em] uppercase"
+            >{t('cta.badge')}</span
+          >
+        </div>
+
+        <!-- Título Principal -->
+        <h2
+          class="cta-element text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-[1.1]"
+          style="--delay: 0.2s"
+        >
+          {t('cta.title.1')} <span
+            class="text-transparent bg-clip-text bg-linear-to-r from-accent to-[#b8d43c]"
+            >{t('cta.title.2')}</span
+          >.
+        </h2>
+        <p
+          class="cta-element text-xl md:text-2xl text-white/60 mb-14 max-w-2xl mx-auto font-medium leading-relaxed"
+          style="--delay: 0.3s"
+        >
+          {t('cta.desc')}
+        </p>
+
+        <div
+          class="cta-element flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto"
+          style="--delay: 0.4s"
+        >
+          <a
+            href="#"
+            class="cta-btn-primary w-full sm:w-auto px-12 py-5 rounded-2xl bg-accent text-dark font-black text-xl flex items-center justify-center gap-3 overflow-hidden relative group"
+          >
+            <span class="relative z-10 flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  d="M10.464 8.746c.227-.18.497-.311.786-.394v2.795a2.252 2.252 0 01-.786-.393c-.394-.313-.546-.681-.546-1.004 0-.323.152-.691.546-1.004zM12.75 15.662v-2.824c.347.085.664.228.921.421.427.32.579.686.579.991 0 .305-.152.671-.579.991a2.534 2.534 0 01-.921.42z"
+                ></path>
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v.816a3.836 3.836 0 00-1.72.756c-.712.566-1.112 1.484-1.112 2.428 0 .944.4 1.862 1.112 2.428.42.333.88.583 1.37.75v2.339a3.805 3.805 0 00-1.783-.79.75.75 0 00-.28 1.474 5.305 5.305 0 002.063 1.09V18a.75.75 0 001.5 0v-.81a3.834 3.834 0 001.761-.758c.712-.566 1.112-1.484 1.112-2.428 0-.944-.4-1.862-1.112-2.428a3.811 3.811 0 00-1.37-.75v-2.33a3.803 3.803 0 001.783.788.75.75 0 10.28-1.473 5.305 5.305 0 00-2.063-1.09V6z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              {t('cta.btn.start')}
+            </span>
+            <div
+              class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:animate-shine z-0"
+            >
+            </div>
+          </a>
+          <a
+            href="#"
+            class="w-full sm:w-auto px-10 py-5 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm text-white font-black text-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-2"
+          >
+            {t('cta.btn.dashboard')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-container {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    animation: ctaReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .cta-element {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(8px);
+    animation: ctaElementReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--delay);
+  }
+
+  .cta-btn-primary {
+    box-shadow: 0 0 20px rgba(205, 235, 69, 0.2);
+    transition: all 0.3s ease;
+  }
+  .cta-btn-primary:hover {
+    box-shadow: 0 0 40px rgba(205, 235, 69, 0.6);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  @keyframes ctaReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes ctaElementReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  .cta-blob {
+    animation: ctaBlobFloat 10s ease-in-out infinite alternate;
+  }
+  @keyframes ctaBlobFloat {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    50% {
+      transform: translate(30px, -30px) scale(1.1);
+    }
+    100% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+  }
+
+  @keyframes shine {
+    100% {
+      transform: skewX(-12deg) translateX(200%);
+    }
+  }
+  .animate-shine {
+    animation: shine 0.7s ease-out forwards;
+  }
+</style>
