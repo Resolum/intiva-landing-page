@@ -1,0 +1,92 @@
+---
+import img1 from "../assets/integrante-1.png";
+import img2 from "../assets/integrante-2.png";
+import img3 from "../assets/integrante-3.png";
+import img4 from "../assets/integrante-4.png";
+import img5 from "../assets/integrante-5.png";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const team = [
+  {
+    name: "Coronel Espinoza Farid Sebastian",
+    code: "u202214567",
+    color: "bg-blue-100 text-blue-600 border-blue-200",
+    image: img1,
+  },
+  {
+    name: "Diaz Quispe Matias Sebastian",
+    code: "u202315891",
+    color: "bg-green-100 text-green-600 border-green-200",
+    image: img3,
+  },
+  {
+    name: "Juarez Leon Nicolas Emilio Walter",
+    code: "u202112345",
+    color: "bg-purple-100 text-purple-600 border-purple-200",
+    image: img2,
+  },
+  {
+    name: "Meza Solórzano Didier Sebastian",
+    code: "u202220192",
+    color: "bg-orange-100 text-orange-600 border-orange-200",
+    image: img4,
+  },
+  {
+    name: "Torres Apolinario Giovany Smith",
+    code: "u202118745",
+    color: "bg-teal-100 text-teal-600 border-teal-200",
+    image: img5,
+  },
+];
+---
+
+<section id="equipo" class="py-32 bg-white relative overflow-hidden">
+  <div
+    class="absolute top-0 right-0 w-full h-px bg-linear-to-r from-transparent via-gray-200 to-transparent"
+  >
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+      <span
+        class="text-primary font-bold tracking-wider uppercase text-sm mb-4 block"
+        >{t("team.badge")}</span
+      >
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+      {
+        team.map((member, index) => (
+          <div
+            class="flex flex-col items-center text-center reveal group bg-white rounded-3xl p-6 border border-gray-50 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(83,74,183,0.08)] hover:-translate-y-2 transition-all duration-300"
+            style={`transition-delay: ${index * 100}ms;`}
+          >
+            <div
+              class={`w-24 h-24 rounded-2xl flex items-center justify-center overflow-hidden mb-6 shadow-sm border group-hover:scale-110 transition-transform duration-300 ${member.color}`}
+            >
+              {member.image ? (
+                <img
+                  src={member.image.src}
+                  alt={member.name}
+                  class="w-full h-full object-cover"
+                />
+              ) : (
+                <span class="text-3xl font-black">{member.name.charAt(0)}</span>
+              )}
+            </div>
+            <h3 class="text-lg font-bold text-dark mb-2 leading-tight group-hover:text-primary transition-colors">
+              {member.name}
+            </h3>
+            <p class="text-sm font-medium text-muted mb-4">{t("team.role")}</p>
+            <span class="inline-block bg-gray-50 border border-gray-100 text-gray-500 text-xs px-3 py-1.5 rounded-lg font-mono font-bold">
+              {member.code}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
