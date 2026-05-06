@@ -1,0 +1,155 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+export function getStaticPaths() {
+  return [{ params: { locale: "en" } }, { params: { locale: "es" } }];
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={`${t("privacy.title")} - Intiva`}>
+  <Header hideNavLinks={true} />
+  <main class="py-20 bg-white min-h-screen">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="mb-16">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-dark mb-4">
+          {t("privacy.title")}
+        </h1>
+        <p class="text-muted">{t("privacy.updated")}</p>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 relative">
+        <aside class="lg:w-1/4">
+          <div class="sticky top-32">
+            <h4
+              class="font-bold text-dark mb-4 uppercase tracking-wider text-sm"
+            >
+              {t("privacy.content")}
+            </h4>
+            <ul class="space-y-3 text-sm text-muted">
+              <li>
+                <a href="#datos" class="hover:text-primary transition-colors">
+                  {t("privacy.nav.1")}
+                </a>
+              </li>
+              <li>
+                <a href="#uso" class="hover:text-primary transition-colors">
+                  {t("privacy.nav.2")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#compartir"
+                  class="hover:text-primary transition-colors"
+                >
+                  {t("privacy.nav.3")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#seguridad"
+                  class="hover:text-primary transition-colors"
+                >
+                  {t("privacy.nav.4")}
+                </a>
+              </li>
+              <li>
+                <a href="#cookies" class="hover:text-primary transition-colors">
+                  {t("privacy.nav.5")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#derechos"
+                  class="hover:text-primary transition-colors"
+                >
+                  {t("privacy.nav.6")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contacto"
+                  class="hover:text-primary transition-colors"
+                >
+                  {t("privacy.nav.7")}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="lg:w-3/4 max-w-[720px] prose prose-lg prose-indigo">
+          <section id="datos" class="mb-12">
+            <h2 class="text-2xl font-bold text-dark mb-4">
+              {t("privacy.sec1.title")}
+            </h2>
+            <p class="text-[16px] leading-[1.8] text-muted mb-4">
+              {t("privacy.sec1.desc")}
+            </p>
+          </section>
+
+          <section id="uso" class="mb-12">
+            <h2 class="text-2xl font-bold text-dark mb-4">
+              {t("privacy.sec2.title")}
+            </h2>
+            <p class="text-[16px] leading-[1.8] text-muted mb-4">
+              {t("privacy.sec2.desc")}
+            </p>
+          </section>
+
+          <section id="compartir" class="mb-12">
+            <h2 class="text-2xl font-bold text-dark mb-4">
+              {t("privacy.sec3.title")}
+            </h2>
+            <p class="text-[16px] leading-[1.8] text-muted mb-4">
+              {t("privacy.sec3.desc")}
+            </p>
+          </section>
+
+          <section id="seguridad" class="mb-12">
+            <h2 class="text-2xl font-bold text-dark mb-4">
+              {t("privacy.sec4.title")}
+            </h2>
+            <p class="text-[16px] leading-[1.8] text-muted mb-4">
+              {t("privacy.sec4.desc")}
+            </p>
+          </section>
+
+          <section id="cookies" class="mb-12">
+            <h2 class="text-2xl font-bold text-dark mb-4">
+              {t("privacy.sec5.title")}
+            </h2>
+            <p class="text-[16px] leading-[1.8] text-muted mb-4">
+              {t("privacy.sec5.desc")}
+            </p>
+          </section>
+
+          <section id="derechos" class="mb-12">
+            <h2 class="text-2xl font-bold text-dark mb-4">
+              {t("privacy.sec6.title")}
+            </h2>
+            <p class="text-[16px] leading-[1.8] text-muted mb-4">
+              {t("privacy.sec6.desc")}
+            </p>
+          </section>
+
+          <section id="contacto" class="mb-12">
+            <h2 class="text-2xl font-bold text-dark mb-4">
+              {t("privacy.sec7.title")}
+            </h2>
+            <p class="text-[16px] leading-[1.8] text-muted mb-4">
+              {t("privacy.sec7.desc")}
+            </p>
+          </section>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <Footer isLegal={true} />
+</Layout>
