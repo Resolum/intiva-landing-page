@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import Problem from '../../components/Problem.astro';
+import Features from '../../components/Features.astro';
+import HowItWorks from '../../components/How-it-works.astro';
+import Plans from '../../components/Plans.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Team from '../../components/Team.astro';
+import CTA from '../../components/CTA.astro';
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return [
+    { params: { locale: 'en' } },
+    { params: { locale: 'es' } },
+  ];
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout 
+  title="Intiva - Administra tus finanzas en familia" 
+  description="Controla tus gastos, ahorra en familia y alcanza tus metas con Intiva. Simple, visual y en equipo."
+>
+  <Header />
+  
+  <main>
+    <Hero />
+    <Problem />
+    <Features />
+    <HowItWorks />
+    <Plans />
+    <Testimonials />
+    <Team />
+    <CTA />
+  </main>
+  
+  <Footer />
+</Layout>
