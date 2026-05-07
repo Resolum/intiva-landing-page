@@ -1,0 +1,103 @@
+---
+import { languages } from "../i18n/ui";
+import { getRouteFromUrl, getLangFromUrl } from "../i18n/utils";
+
+const route = getRouteFromUrl(Astro.url);
+const currentLang = getLangFromUrl(Astro.url);
+
+const cleanRoute = route ? route.replace(/^\//, "") : "";
+---
+
+<div class="relative inline-block text-left language-picker group">
+  <button
+    type="button"
+    class="inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-white/80 hover:text-accent transition-colors nav-link py-2"
+    id="options-menu"
+    aria-haspopup="true"
+    aria-expanded="true"
+  >
+    <svg
+      class="w-4 h-4"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+      ></path>
+    </svg>
+    <span class="uppercase tracking-wider">{currentLang}</span>
+    <svg
+      class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+        clip-rule="evenodd"></path>
+    </svg>
+  </button>
+
+  <div
+    class="absolute right-0 mt-2 w-36 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] bg-white border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden"
+  >
+    <div
+      class="py-2"
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="options-menu"
+    >
+      {
+        Object.entries(languages).map(([lang, label]) => (
+          <a
+            href={`/${lang}${cleanRoute ? "/" + cleanRoute : ""}`}
+            class={`lang-switch-link flex items-center gap-2 px-4 py-2.5 text-sm font-semibold transition-colors ${currentLang === lang ? "text-primary bg-primary/5" : "text-dark hover:bg-gray-50 hover:text-primary"}`}
+            role="menuitem"
+          >
+            <span
+              class={`w-1.5 h-1.5 rounded-full ${currentLang === lang ? "bg-primary" : "bg-transparent"}`}
+            />
+            {label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll(".lang-switch-link").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      sessionStorage.setItem("langSwitchScroll", window.scrollY.toString());
+      const href = link.getAttribute("href");
+      const hash = window.location.hash;
+      window.location.href = href + (hash || "");
+    });
+  });
+
+  const restoreScroll = () => {
+    const scrollPos = sessionStorage.getItem("langSwitchScroll");
+    if (scrollPos) {
+      sessionStorage.removeItem("langSwitchScroll");
+      setTimeout(() => {
+        window.scrollTo({
+          top: parseInt(scrollPos, 10),
+          behavior: "instant",
+        });
+      }, 50);
+    }
+  };
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", restoreScroll);
+  } else {
+    restoreScroll();
+  }
+</script>

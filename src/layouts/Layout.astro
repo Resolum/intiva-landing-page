@@ -1,24 +1,70 @@
 ---
 import "../styles/global.css";
+import { getLangFromUrl } from '../i18n/utils';
 
 interface Props {
   title: string;
-  description: string;
+  description?: string;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description = "Intiva - Administra tus finanzas en familia — simple, visual y en equipo",
+} = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/logo.ico" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
   </head>
-  <body>
+  <body
+    class="font-sans bg-white text-dark antialiased selection:bg-accent selection:text-dark"
+  >
     <slot />
+
+    <script is:inline>
+      const observeElements = () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-fade-in-up", "opacity-100");
+                entry.target.classList.remove("opacity-0", "translate-y-10");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          },
+        );
+
+        document.querySelectorAll(".reveal").forEach((el) => {
+          el.classList.add(
+            "opacity-0",
+            "translate-y-10",
+            "transition-all",
+            "duration-700",
+          );
+          observer.observe(el);
+        });
+      };
+      observeElements();
+      document.addEventListener("astro:after-swap", observeElements);
+    </script>
   </body>
 </html>
