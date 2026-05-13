@@ -13,30 +13,35 @@ const team = [
   {
     name: "Coronel Espinoza Farid Sebastian",
     code: "u202214567",
+    roleKey: "team.role.1",
     color: "bg-blue-100 text-blue-600 border-blue-200",
     image: img1,
   },
   {
     name: "Diaz Quispe Matias Sebastian",
     code: "u202315891",
+    roleKey: "team.role.2",
     color: "bg-green-100 text-green-600 border-green-200",
     image: img3,
   },
   {
     name: "Juarez Leon Nicolas Emilio Walter",
     code: "u202112345",
+    roleKey: "team.role.3",
     color: "bg-purple-100 text-purple-600 border-purple-200",
     image: img2,
   },
   {
     name: "Meza Solórzano Didier Sebastian",
     code: "u202220192",
+    roleKey: "team.role.4",
     color: "bg-orange-100 text-orange-600 border-orange-200",
     image: img4,
   },
   {
     name: "Torres Apolinario Giovany Smith",
     code: "u202118745",
+    roleKey: "team.role.5",
     color: "bg-teal-100 text-teal-600 border-teal-200",
     image: img5,
   },
@@ -50,11 +55,19 @@ const team = [
   </div>
 
   <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-    <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+    <div class="text-center max-w-4xl mx-auto mb-20 reveal">
       <span
         class="text-primary font-bold tracking-wider uppercase text-sm mb-4 block"
         >{t("team.badge")}</span
       >
+      <h2
+        class="text-3xl md:text-4xl font-extrabold text-dark mb-4 tracking-tight"
+      >
+        {t("team.title")}
+      </h2>
+      <p class="text-lg md:text-xl text-muted font-medium">
+        {t("team.subtitle")}
+      </p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -77,16 +90,22 @@ const team = [
                 <span class="text-3xl font-black">{member.name.charAt(0)}</span>
               )}
             </div>
-            <h3 class="text-lg font-bold text-dark mb-2 leading-tight group-hover:text-primary transition-colors">
+            <h3 class="text-base font-bold text-dark mb-1 leading-tight group-hover:text-primary transition-colors">
               {member.name}
             </h3>
-            <p class="text-sm font-medium text-muted mb-4">{t("team.role")}</p>
-            <span class="inline-block bg-gray-50 border border-gray-100 text-gray-500 text-xs px-3 py-1.5 rounded-lg font-mono font-bold">
-              {member.code}
-            </span>
+            <p class="text-sm font-medium text-primary mb-3">
+              {t(member.roleKey as any)}
+            </p>
+            <span class="text-xs text-muted font-mono">{member.code}</span>
           </div>
         ))
       }
+    </div>
+
+    <div
+      class="mt-16 text-center reveal flex flex-col items-center justify-center"
+    >
+      <p class="text-muted text-sm font-medium mt-2">Startup Resolum</p>
     </div>
   </div>
 </section>
