@@ -140,44 +140,27 @@ const t = useTranslations(lang);
         </p>
       </div>
     </div>
-    <div
-      class="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative group bg-gray-900 aspect-video mb-16 reveal border border-white/10 cursor-pointer"
-    >
-      <div
-        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-50 transition-all duration-700 group-hover:opacity-60 group-hover:scale-105"
-      >
-      </div>
-      <div
-        class="absolute inset-0 bg-linear-to-t from-dark via-transparent to-transparent opacity-80"
-      >
-      </div>
-      <div
-        class="absolute inset-0 flex flex-col items-center justify-center z-10"
-      >
-        <button
-          class="w-20 h-20 rounded-full bg-accent text-dark flex items-center justify-center transform group-hover:scale-110 transition-transform shadow-[0_0_30px_rgba(205,235,69,0.5)] group-hover:shadow-[0_0_40px_rgba(205,235,69,0.8)] mb-6"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            class="w-8 h-8 ml-1"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
-              clip-rule="evenodd"></path>
-          </svg>
-        </button>
-        <span
-          class="text-white font-medium bg-black/40 px-6 py-2 rounded-full backdrop-blur-md border border-white/10 tracking-wide text-sm"
-          >{t('how.video')}</span
-        >
+    <div class="max-w-[720px] mx-auto rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative bg-gray-900 aspect-video mb-16 reveal border border-white/10 flex flex-col items-center">
+      <!-- TODO: Replace YOUTUBE_VIDEO_ID with actual ID -->
+      <iframe 
+        class="w-full h-full" 
+        src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID" 
+        title="Intiva Video" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+      <div class="mt-4 mb-4 text-center">
+        <span class="text-white font-medium bg-black/40 px-6 py-2 rounded-full backdrop-blur-md border border-white/10 tracking-wide text-sm">
+          {t('how.video')}
+        </span>
       </div>
     </div>
-    <div class="text-center reveal">
+    <div class="text-center reveal mt-12">
       <a
-        href="#"
+        href="https://play.google.com/store/apps/details?id=com.resolum.intiva"
+        target="_blank"
+        rel="noopener noreferrer"
         class="inline-block px-10 py-4 rounded-full bg-accent text-dark font-bold text-lg hover:bg-[#b8d43c] hover:scale-105 transition-all shadow-[0_0_20px_rgba(205,235,69,0.4)] hover:shadow-[0_0_30px_rgba(205,235,69,0.6)]"
       >
         {t('how.btn')}

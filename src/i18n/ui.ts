@@ -10,6 +10,7 @@ export const ui = {
     // Navigation
     'nav.home': 'Home',
     'nav.features': 'Features',
+    'nav.benefits': 'Benefits',
     'nav.howItWorks': 'How it Works',
     'nav.pricing': 'Pricing',
     'nav.team': 'Team',
@@ -51,6 +52,23 @@ export const ui = {
     'features.4.desc': 'Invite your family with a QR. View home transactions, savings, and achievements together.',
     'features.explore': 'Explore feature',
 
+    // Benefits
+    'benefits.badge': 'Benefits',
+    'benefits.title': 'What do you get by using Intiva?',
+    'benefits.1.title': 'Total control of your finances',
+    'benefits.1.desc': 'Log and classify every income and expense of your home in one place.',
+    'benefits.2.title': 'Achievable savings goals',
+    'benefits.2.desc': 'Set clear objectives and track your progress with real-time visualizations.',
+    'benefits.3.title': 'Budgets that are met',
+    'benefits.3.desc': 'Set limits by category and get alerts before overspending.',
+    'benefits.4.title': 'Finances as a family, as a team',
+    'benefits.4.desc': 'Manage household money together with all your family members.',
+    'benefits.5.title': 'Visibility of your data',
+    'benefits.5.desc': 'Access statistical charts that reveal spending and income patterns.',
+    'benefits.6.title': 'Better financial decisions',
+    'benefits.6.desc': 'Make informed decisions with clear reports of your financial situation.',
+    'benefits.btn': 'Start free today',
+
     // How it works
     'how.badge': 'How it works',
     'how.title.1': 'Start controlling your finances in',
@@ -62,7 +80,7 @@ export const ui = {
     'how.3.title': 'Analyze and improve',
     'how.3.desc': 'Access the dashboard to see charts, reports, and trends.',
     'how.video': 'See Intiva in action — 2 min',
-    'how.btn': 'Start now for free',
+    'how.btn': 'Download for free on Google Play',
 
     // Plans
     'plans.badge': 'Plans and Pricing',
@@ -86,11 +104,13 @@ export const ui = {
     'plans.family.5': 'Basic web dashboard',
     'plans.premium.title': 'Premium',
     'plans.premium.btn': 'Choose Premium',
-    'plans.premium.1': 'Everything in the Family plan',
-    'plans.premium.2': 'Families up to 10 members',
-    'plans.premium.3': 'Downloadable advanced reports',
-    'plans.premium.4': 'Full web dashboard',
-    'plans.premium.5': 'Priority support',
+    'plans.premium.note': 'Payment is securely processed via Google Play Billing',
+    'plans.premium.1': 'Everything in the Free plan',
+    'plans.premium.2': 'Family group (large families)',
+    'plans.premium.3': 'Advanced statistical charts',
+    'plans.premium.4': 'Larger catalog of data visualizations',
+    'plans.premium.5': 'Family finance reports',
+    'plans.googlePlay': 'Available on Google Play for Android',
 
     // Problem
     'problem.badge': 'Why Intiva?',
@@ -106,7 +126,13 @@ export const ui = {
 
     // Team
     'team.badge': 'The team',
-    'team.role': 'Software Engineering',
+    'team.title': 'Built by Software Engineering students — UPC',
+    'team.subtitle': 'Startup Resolum — Term 2026-1 · Software Architecture Fundamentals',
+    'team.role.1': 'Scrum Master',
+    'team.role.2': 'Frontend - Mobile Developer',
+    'team.role.3': 'Backend - Mobile Developer',
+    'team.role.4': 'Mobile Developer',
+    'team.role.5': 'Backend Developer',
 
     // Testimonials
     'testimonials.badge': 'Testimonials',
@@ -191,6 +217,7 @@ export const ui = {
     'cta.title.2': 'today',
     'cta.desc': 'Leave the end-of-month stress behind. Take full control of your money along with your family with the most intuitive tool.',
     'cta.btn.start': 'Start for Free',
+    'cta.btn.download': 'Download on Google Play',
     'cta.btn.dashboard': 'Web Dashboard',
 
     // Footer
@@ -208,6 +235,7 @@ export const ui = {
     // Navigation
     'nav.home': 'Inicio',
     'nav.features': 'Funcionalidades',
+    'nav.benefits': 'Beneficios',
     'nav.howItWorks': 'Cómo funciona',
     'nav.pricing': 'Planes',
     'nav.team': 'Equipo',
@@ -249,6 +277,23 @@ export const ui = {
     'features.4.desc': 'Invita a tu familia con un QR. Visualicen juntos los movimientos, ahorros y logros del hogar.',
     'features.explore': 'Explorar función',
 
+    // Benefits
+    'benefits.badge': 'Beneficios',
+    'benefits.title': '¿Qué obtienes al usar Intiva?',
+    'benefits.1.title': 'Control total de tus finanzas',
+    'benefits.1.desc': 'Registra y clasifica cada ingreso y gasto de tu hogar en un solo lugar.',
+    'benefits.2.title': 'Metas de ahorro alcanzables',
+    'benefits.2.desc': 'Define objetivos claros y sigue tu progreso con visualizaciones en tiempo real.',
+    'benefits.3.title': 'Presupuestos que sí se cumplen',
+    'benefits.3.desc': 'Establece límites por categoría y recibe alertas antes de sobrepasarlos.',
+    'benefits.4.title': 'Finanzas en familia, en equipo',
+    'benefits.4.desc': 'Gestiona el dinero del hogar en conjunto con todos los miembros de tu familia.',
+    'benefits.5.title': 'Visibilidad de tus datos',
+    'benefits.5.desc': 'Accede a gráficos estadísticos que revelan patrones de gasto e ingreso.',
+    'benefits.6.title': 'Mejores decisiones financieras',
+    'benefits.6.desc': 'Toma decisiones informadas con reportes claros de tu situación financiera.',
+    'benefits.btn': 'Empieza gratis hoy',
+
     // How it works
     'how.badge': 'Cómo funciona',
     'how.title.1': 'Empieza a controlar tus finanzas en',
@@ -260,7 +305,7 @@ export const ui = {
     'how.3.title': 'Analiza y mejora',
     'how.3.desc': 'Accede al dashboard para ver gráficos, reportes y tendencias.',
     'how.video': 'Ver Intiva en acción — 2 min',
-    'how.btn': 'Empezar ahora gratis',
+    'how.btn': 'Descargar gratis en Google Play',
 
     // Plans
     'plans.badge': 'Planes y Precios',
@@ -284,11 +329,13 @@ export const ui = {
     'plans.family.5': 'Dashboard web básico',
     'plans.premium.title': 'Premium',
     'plans.premium.btn': 'Elegir Premium',
-    'plans.premium.1': 'Todo lo del plan Familiar',
-    'plans.premium.2': 'Familias de hasta 10 miembros',
-    'plans.premium.3': 'Reportes avanzados descargables',
-    'plans.premium.4': 'Dashboard web completo',
-    'plans.premium.5': 'Soporte prioritario',
+    'plans.premium.note': 'El pago se gestiona de forma segura a través de Google Play Billing',
+    'plans.premium.1': 'Todo lo del plan Gratuito, más:',
+    'plans.premium.2': 'Grupo familiar — familias numerosas',
+    'plans.premium.3': 'Gráficos avanzados estadísticos',
+    'plans.premium.4': 'Mayor catálogo de visualizaciones',
+    'plans.premium.5': 'Reportes de finanzas familiares',
+    'plans.googlePlay': 'Disponible en Google Play para Android',
 
     // Problem
     'problem.badge': '¿Por qué Intiva?',
@@ -304,7 +351,12 @@ export const ui = {
 
     // Team
     'team.badge': 'El equipo',
-    'team.role': 'Ingeniería de Software',
+    'team.title': 'Construido por estudiantes de Ingeniería de Software — UPC',
+    'team.subtitle': 'Startup Resolum — Ciclo 2026-1 · Fundamentos de Arquitectura de Software',
+    'team.role.scrum': 'Scrum Master / Team Lead',
+    'team.role.backend': 'Backend Developer',
+    'team.role.mobile': 'Mobile Developer (Android)',
+    'team.role.frontend': 'Frontend Developer',
 
     // Testimonials
     'testimonials.badge': 'Testimonios',
@@ -388,7 +440,8 @@ export const ui = {
     'cta.title.2': 'hoy mismo',
     'cta.desc': 'Deja atrás el estrés a fin de mes. Toma el control total de tu dinero junto a tu familia con la herramienta más intuitiva.',
     'cta.btn.start': 'Comenzar Gratis',
-    'cta.btn.dashboard': 'Dashboard Web',
+    'cta.btn.download': 'Descargar en Google Play',
+    'cta.btn.dashboard': 'Acceder al Dashboard web',
 
     // Footer
     'footer.desc': 'La primera plataforma peruana diseñada para que las familias tomen el control de su futuro financiero en equipo.',
