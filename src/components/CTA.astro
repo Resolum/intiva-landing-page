@@ -66,7 +66,9 @@ const t = useTranslations(lang);
           style="--delay: 0.4s"
         >
           <a
-            href="#"
+            href="https://play.google.com/store/apps/details?id=com.resolum.intiva"
+            target="_blank"
+            rel="noopener noreferrer"
             class="cta-btn-primary w-full sm:w-auto px-12 py-5 rounded-2xl bg-accent text-dark font-black text-xl flex items-center justify-center gap-3 overflow-hidden relative group"
           >
             <span class="relative z-10 flex items-center gap-2">
@@ -84,19 +86,27 @@ const t = useTranslations(lang);
                   d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v.816a3.836 3.836 0 00-1.72.756c-.712.566-1.112 1.484-1.112 2.428 0 .944.4 1.862 1.112 2.428.42.333.88.583 1.37.75v2.339a3.805 3.805 0 00-1.783-.79.75.75 0 00-.28 1.474 5.305 5.305 0 002.063 1.09V18a.75.75 0 001.5 0v-.81a3.834 3.834 0 001.761-.758c.712-.566 1.112-1.484 1.112-2.428 0-.944-.4-1.862-1.112-2.428a3.811 3.811 0 00-1.37-.75v-2.33a3.803 3.803 0 001.783.788.75.75 0 10.28-1.473 5.305 5.305 0 00-2.063-1.09V6z"
                   clip-rule="evenodd"></path>
               </svg>
-              {t('cta.btn.start')}
+              {t('cta.btn.download')}
             </span>
             <div
               class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:animate-shine z-0"
             >
             </div>
           </a>
+          <!-- TODO: Replace with Web Dashboard URL -->
           <a
             href="#"
             class="w-full sm:w-auto px-10 py-5 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm text-white font-black text-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-2"
           >
             {t('cta.btn.dashboard')}
           </a>
+        </div>
+        
+        <div class="mt-12 flex justify-center cta-element" style="--delay: 0.5s">
+          <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10 backdrop-blur-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-white/80"><path d="M4.5 3.324v17.352c0 .59.436 1.096 1.024 1.15.545.05.992-.224 1.258-.654l7.143-11.536L4.5 3.324Zm14.28 7.5l-6.074 3.797 7.042-11.37a1.08 1.08 0 0 1 .536.88v12.738a1.08 1.08 0 0 1-.536.88l-7.042-11.371 6.074-3.796Z" /></svg>
+            <span class="text-sm font-medium text-white/80">{t('plans.googlePlay')}</span>
+          </div>
         </div>
       </div>
     </div>
