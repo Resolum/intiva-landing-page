@@ -11,10 +11,10 @@ const cleanRoute = route ? route.replace(/^\//, "") : "";
 <div class="relative inline-block text-left language-picker group">
   <button
     type="button"
-    class="inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-white/80 hover:text-accent transition-colors nav-link py-2"
+    class="inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-white/80 hover:text-accent transition-colors nav-link py-2 lang-picker-btn"
     id="options-menu"
     aria-haspopup="true"
-    aria-expanded="true"
+    aria-expanded="false"
   >
     <svg
       class="w-4 h-4"
@@ -46,7 +46,7 @@ const cleanRoute = route ? route.replace(/^\//, "") : "";
   </button>
 
   <div
-    class="absolute right-0 mt-2 w-36 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] bg-white border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden"
+    class="lang-picker-dropdown absolute right-0 mt-2 w-36 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] bg-white border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right translate-y-2 group-hover:translate-y-0 z-[100] overflow-hidden"
   >
     <div
       class="py-2"
@@ -73,6 +73,31 @@ const cleanRoute = route ? route.replace(/^\//, "") : "";
 </div>
 
 <script>
+  document.querySelectorAll(".lang-picker-btn").forEach((btn) => {
+    const picker = btn.closest(".language-picker") as HTMLElement | null;
+    const dropdown = picker?.querySelector(".lang-picker-dropdown") as HTMLElement | null;
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown?.classList.contains("is-open");
+      document.querySelectorAll(".lang-picker-dropdown.is-open").forEach((d) => {
+        d.classList.remove("is-open", "opacity-100", "visible", "translate-y-0");
+        d.classList.add("opacity-0", "invisible", "translate-y-2");
+      });
+      if (!isOpen && dropdown) {
+        dropdown.classList.add("is-open", "opacity-100", "visible", "translate-y-0");
+        dropdown.classList.remove("opacity-0", "invisible", "translate-y-2");
+      }
+    });
+  });
+
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".lang-picker-dropdown.is-open").forEach((d) => {
+      d.classList.remove("is-open", "opacity-100", "visible", "translate-y-0");
+      d.classList.add("opacity-0", "invisible", "translate-y-2");
+    });
+  });
+
   document.querySelectorAll(".lang-switch-link").forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
