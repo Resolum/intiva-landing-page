@@ -54,59 +54,54 @@ const features = [
 ];
 ---
 
-<section id="funcionalidades" class="py-32 bg-lightbg relative overflow-hidden">
-  <div class="absolute top-1/4 left-0 w-72 h-72 bg-primary/5 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-  <div class="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+<section id="funcionalidades" class="section-padding bg-lightbg relative overflow-hidden">
+  <div class="blur-blob top-1/4 left-0 w-72 h-72 bg-primary/5 animate-blob"></div>
+  <div class="blur-blob bottom-1/4 right-0 w-96 h-96 bg-accent/10 animate-blob"></div>
 
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-    
-    <div class="text-center max-w-3xl mx-auto mb-24 reveal">
-      <span class="text-primary font-bold tracking-wider uppercase text-sm mb-4 inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-full">
-        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+  <div class="container-main relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+      <span class="badge badge-primary">
         {t('features.badge')}
       </span>
-      <h2 class="text-4xl md:text-5xl font-extrabold text-dark mb-6 tracking-tight">
-        {t('features.title.1')} <span class="text-transparent bg-clip-text bg-linear-to-r from-primary to-[#8b83ec]">{t('features.title.2')}</span>
+      <h2 class="section-title mt-4">
+        {t('features.title.1')} <span class="gradient-text">{t('features.title.2')}</span>
       </h2>
     </div>
 
-    <div class="space-y-32">
+    <div class="space-y-24 lg:space-y-32">
       {features.map((feature, index) => (
         <div class={`reveal flex flex-col lg:flex-row items-center gap-12 lg:gap-24 ${feature.imageReversed ? 'lg:flex-row-reverse' : ''}`}>
           
           <div class="w-full lg:w-1/2 flex justify-center perspective-1000">
-            <div class={`relative w-[250px] h-[520px] sm:w-[260px] sm:h-[5 60px] md:w-[280px] md:h-[600px] lg:w-[300px] lg:h-[640px] rounded-[40px] border-8 border-dark overflow-hidden bg-white`}>              <!-- Notch -->
+            <div class="relative w-[250px] h-[520px] sm:w-[260px] sm:h-[560px] md:w-[280px] md:h-[600px] lg:w-[300px] lg:h-[640px] rounded-[40px] border-8 border-dark overflow-hidden bg-white">
               <div class="absolute top-0 inset-x-0 h-6 flex justify-center z-20">
                 <div class="w-28 h-5 bg-dark rounded-b-2xl shadow-sm"></div>
               </div>
-              
-                  <img src={feature.image?.src} alt="App Screen" class="w-full h-full object-cover object-top"/>
-              
+              <img src={feature.image?.src} alt={feature.title} class="w-full h-full object-cover object-top"/>
               <div class="absolute inset-0 bg-linear-to-t from-black/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             </div>
           </div>
 
           <div class="w-full lg:w-1/2 lg:px-8">
-            <div class={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-sm ${feature.accentClass}`}>
+            <div class={`icon-box mb-6 ${feature.accentClass}`}>
               <Fragment set:html={feature.icon} />
             </div>
             <h3 class="text-3xl md:text-4xl font-extrabold text-dark mb-5 tracking-tight">{feature.title}</h3>
-            <p class="text-lg md:text-xl text-muted mb-8 leading-relaxed">
+            <p class="section-subtitle mb-8 leading-relaxed">
               {feature.description}
             </p>
-            <a href="#" class="inline-flex items-center gap-2 text-primary font-bold hover:text-dark transition-colors group">
+            <a href="#planes" class="btn-ghost group">
               {t('features.explore')}
-              <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform">
+              <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
-              </div>
+              </span>
             </a>
           </div>
 
         </div>
       ))}
     </div>
-
   </div>
 </section>

@@ -4,165 +4,38 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="como-funciona" class="py-32 bg-dark relative overflow-hidden">
-  <div
-    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[100px] pointer-events-none animate-pulse-slow"
-  >
-  </div>
+<section id="como-funciona" class="section-padding bg-dark relative overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[100px] pointer-events-none animate-pulse-slow"></div>
 
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+  <div class="container-main relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-20 reveal">
-      <span
-        class="text-accent font-bold tracking-wider uppercase text-sm mb-4 block"
-        >{t('how.badge')}</span
-      >
-      <h2
-        class="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight"
-      >
-        {t('how.title.1')} <span
-          class="text-transparent bg-clip-text bg-linear-to-r from-accent to-[#7dd3fc]"
-          >{t('how.title.2')}</span
-        >
+      <span class="badge badge-accent">{t('how.badge')}</span>
+      <h2 class="section-title text-white mt-4">
+        {t('how.title.1')} <span class="gradient-text-accent">{t('how.title.2')}</span>
       </h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-24 relative">
-      <div
-        class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-linear-to-r from-primary/20 via-primary to-primary/20 z-0 opacity-50"
-      >
+      <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-linear-to-r from-primary/20 via-primary to-primary/20 z-0 opacity-50"></div>
+      {[{ num: '1', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.66-1.548c0 .351-.01.7-.029 1.047a4.5 4.5 0 01-1.258 3.125 4.5 4.5 0 01-3.56 1.488H6.5a4.5 4.5 0 01-2.5-.75z" /></svg>` }, { num: '2', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>` }, { num: '3', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>` }].map((step, i) => (
+      <div class="relative z-10 flex flex-col items-center text-center reveal group" style={`transition-delay: ${i * 100}ms;`}>
+        <div class="w-24 h-24 rounded-full bg-linear-to-br from-primary to-primary-dark flex items-center justify-center border-8 border-dark mb-6 text-white shadow-[0_0_30px_rgba(83,74,183,0.3)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(83,74,183,0.6)] transition-all duration-300">
+          <Fragment set:html={step.icon} />
+        </div>
+        <div class="bg-accent text-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm absolute top-0 right-[20%] md:right-[25%] border-4 border-dark group-hover:bg-white transition-colors shadow-lg">{step.num}</div>
+        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{t(`how.${step.num}.title`)}</h3>
+        <p class="text-white/70 leading-relaxed max-w-xs font-medium">{t(`how.${step.num}.desc`)}</p>
       </div>
-      <div
-        class="relative z-10 flex flex-col items-center text-center reveal group"
-      >
-        <div
-          class="w-24 h-24 rounded-full bg-linear-to-br from-primary to-[#433b9c] flex items-center justify-center border-8 border-dark mb-6 text-white shadow-[0_0_30px_rgba(83,74,183,0.3)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(83,74,183,0.6)] transition-all duration-300"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-10 h-10"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.66-1.548c0 .351-.01.7-.029 1.047a4.5 4.5 0 01-1.258 3.125 4.5 4.5 0 01-3.56 1.488H6.5a4.5 4.5 0 01-2.5-.75z"
-            ></path>
-          </svg>
-        </div>
-        <div
-          class="bg-accent text-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm absolute top-0 right-[20%] md:right-[25%] border-4 border-dark group-hover:bg-white transition-colors shadow-lg"
-        >
-          1
-        </div>
-        <h3
-          class="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors"
-        >
-          {t('how.1.title')}
-        </h3>
-        <p class="text-white/70 leading-relaxed max-w-xs font-medium">
-          {t('how.1.desc')}
-        </p>
-      </div>
-
-      <div
-        class="relative z-10 flex flex-col items-center text-center reveal group"
-        style="transition-delay: 100ms;"
-      >
-        <div
-          class="w-24 h-24 rounded-full bg-linear-to-br from-primary to-[#433b9c] flex items-center justify-center border-8 border-dark mb-6 text-white shadow-[0_0_30px_rgba(83,74,183,0.3)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(83,74,183,0.6)] transition-all duration-300"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-10 h-10"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-        </div>
-        <div
-          class="bg-accent text-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm absolute top-0 right-[20%] md:right-[25%] border-4 border-dark group-hover:bg-white transition-colors shadow-lg"
-        >
-          2
-        </div>
-        <h3
-          class="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors"
-        >
-          {t('how.2.title')}
-        </h3>
-        <p class="text-white/70 leading-relaxed max-w-xs font-medium">
-          {t('how.2.desc')}
-        </p>
-      </div>
-
-      <div
-        class="relative z-10 flex flex-col items-center text-center reveal group"
-        style="transition-delay: 200ms;"
-      >
-        <div
-          class="w-24 h-24 rounded-full bg-linear-to-br from-primary to-[#433b9c] flex items-center justify-center border-8 border-dark mb-6 text-white shadow-[0_0_30px_rgba(83,74,183,0.3)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(83,74,183,0.6)] transition-all duration-300"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-10 h-10"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
-            ></path>
-          </svg>
-        </div>
-        <div
-          class="bg-accent text-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm absolute top-0 right-[20%] md:right-[25%] border-4 border-dark group-hover:bg-white transition-colors shadow-lg"
-        >
-          3
-        </div>
-        <h3
-          class="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors"
-        >
-          {t('how.3.title')}
-        </h3>
-        <p class="text-white/70 leading-relaxed max-w-xs font-medium">
-          {t('how.3.desc')}
-        </p>
-      </div>
+      ))}
     </div>
     <div class="max-w-[720px] mx-auto rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative bg-gray-900 aspect-video mb-16 reveal border border-white/10 flex flex-col items-center">
-      <!-- TODO: Replace YOUTUBE_VIDEO_ID with actual ID -->
-      <iframe 
-        class="w-full h-full" 
-        src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID" 
-        title="Intiva Video" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
+      <iframe class="w-full h-full" src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID" title="Intiva Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <div class="mt-4 mb-4 text-center">
-        <span class="text-white font-medium bg-black/40 px-6 py-2 rounded-full backdrop-blur-md border border-white/10 tracking-wide text-sm">
-          {t('how.video')}
-        </span>
+        <span class="text-white font-medium bg-black/40 px-6 py-2 rounded-full backdrop-blur-md border border-white/10 tracking-wide text-sm">{t('how.video')}</span>
       </div>
     </div>
     <div class="text-center reveal mt-12">
-      <a
-        href="https://play.google.com/store/apps/details?id=com.resolum.intiva"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block px-10 py-4 rounded-full bg-accent text-dark font-bold text-lg hover:bg-[#b8d43c] hover:scale-105 transition-all shadow-[0_0_20px_rgba(205,235,69,0.4)] hover:shadow-[0_0_30px_rgba(205,235,69,0.6)]"
-      >
+      <a href="https://play.google.com/store/apps/details?id=com.resolum.intiva" target="_blank" rel="noopener noreferrer" class="btn-primary inline-block shadow-[0_0_20px_rgba(205,235,69,0.4)] hover:shadow-[0_0_30px_rgba(205,235,69,0.6)] hover:scale-105">
         {t('how.btn')}
       </a>
     </div>
