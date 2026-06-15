@@ -48,63 +48,36 @@ const team = [
 ];
 ---
 
-<section id="equipo" class="py-32 bg-white relative overflow-hidden">
-  <div
-    class="absolute top-0 right-0 w-full h-px bg-linear-to-r from-transparent via-gray-200 to-transparent"
-  >
-  </div>
+<section id="equipo" class="section-padding bg-white relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-full h-px bg-linear-to-r from-transparent via-gray-200 to-transparent"></div>
 
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+  <div class="container-main relative z-10">
     <div class="text-center max-w-4xl mx-auto mb-20 reveal">
-      <span
-        class="text-primary font-bold tracking-wider uppercase text-sm mb-4 block"
-        >{t("team.badge")}</span
-      >
-      <h2
-        class="text-3xl md:text-4xl font-extrabold text-dark mb-4 tracking-tight"
-      >
-        {t("team.title")}
-      </h2>
-      <p class="text-lg md:text-xl text-muted font-medium">
-        {t("team.subtitle")}
-      </p>
+      <span class="badge badge-primary">{t("team.badge")}</span>
+      <h2 class="section-title mt-4">{t("team.title")}</h2>
+      <p class="section-subtitle">{t("team.subtitle")}</p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
-      {
-        team.map((member, index) => (
-          <div
-            class="flex flex-col items-center text-center reveal group bg-white rounded-3xl p-6 border border-gray-50 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(83,74,183,0.08)] hover:-translate-y-2 transition-all duration-300"
-            style={`transition-delay: ${index * 100}ms;`}
-          >
-            <div
-              class={`w-24 h-24 rounded-2xl flex items-center justify-center overflow-hidden mb-6 shadow-sm border group-hover:scale-110 transition-transform duration-300 ${member.color}`}
-            >
-              {member.image ? (
-                <img
-                  src={member.image.src}
-                  alt={member.name}
-                  class="w-full h-full object-cover"
-                />
-              ) : (
-                <span class="text-3xl font-black">{member.name.charAt(0)}</span>
-              )}
-            </div>
-            <h3 class="text-base font-bold text-dark mb-1 leading-tight group-hover:text-primary transition-colors">
-              {member.name}
-            </h3>
-            <p class="text-sm font-medium text-primary mb-3">
-              {t(member.roleKey as any)}
-            </p>
-            <span class="text-xs text-muted font-mono">{member.code}</span>
-          </div>
-        ))
-      }
+      {team.map((member, index) => (
+      <div class="flex flex-col items-center text-center reveal group card-hover p-6" style={`transition-delay: ${index * 100}ms;`}>
+        <div class={`w-24 h-24 rounded-2xl flex items-center justify-center overflow-hidden mb-6 shadow-sm border group-hover:scale-110 transition-transform duration-300 ${member.color}`}>
+          {member.image ? (
+            <img src={member.image.src} alt={member.name} class="w-full h-full object-cover" />
+          ) : (
+            <span class="text-3xl font-black">{member.name.charAt(0)}</span>
+          )}
+        </div>
+        <h3 class="text-base font-bold text-dark mb-1 leading-tight group-hover:text-primary transition-colors">
+          {member.name}
+        </h3>
+        <p class="text-sm font-medium text-primary mb-3">{t(member.roleKey as any)}</p>
+        <span class="text-xs text-muted font-mono">{member.code}</span>
+      </div>
+      ))}
     </div>
 
-    <div
-      class="mt-16 text-center reveal flex flex-col items-center justify-center"
-    >
+    <div class="mt-16 text-center reveal flex flex-col items-center justify-center">
       <p class="text-muted text-sm font-medium mt-2">Startup Resolum</p>
     </div>
   </div>

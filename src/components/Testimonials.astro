@@ -4,149 +4,48 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="testimonios" class="py-32 bg-lightbg relative overflow-hidden">
-  <div
-    class="absolute top-1/4 left-10 w-64 h-64 bg-accent/10 rounded-full blur-[80px] pointer-events-none animate-blob"
-  >
-  </div>
-  <div
-    class="absolute bottom-1/4 right-10 w-80 h-80 bg-primary/10 rounded-full blur-[100px] pointer-events-none animate-blob animation-delay-2000"
-  >
-  </div>
+<section id="testimonios" class="section-padding bg-lightbg relative overflow-hidden">
+  <div class="blur-blob top-1/4 left-10 w-64 h-64 bg-accent/10 animate-blob"></div>
+  <div class="blur-blob bottom-1/4 right-10 w-80 h-80 bg-primary/10 animate-blob"></div>
 
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+  <div class="container-main relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-20 reveal">
-      <span
-        class="text-primary font-bold tracking-wider uppercase text-sm mb-4 block"
-        >{t('testimonials.badge')}</span
-      >
-      <h2
-        class="text-4xl md:text-5xl font-extrabold text-dark mb-6 tracking-tight"
-      >
-        {t('testimonials.title.1')} <span
-          class="text-transparent bg-clip-text bg-linear-to-r from-primary to-[#433b9c]"
-          >{t('testimonials.title.2')}</span
-        >{t('testimonials.title.3')}
+      <span class="badge badge-primary">{t('testimonials.badge')}</span>
+      <h2 class="section-title mt-4">
+        {t('testimonials.title.1')} <span class="gradient-text">{t('testimonials.title.2')}</span>{t('testimonials.title.3')}
       </h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div
-        class="bg-white rounded-3xl p-8 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgba(83,74,183,0.1)] hover:-translate-y-2 transition-all duration-300 relative reveal group"
-      >
-        <div
-          class="absolute -top-4 -right-4 text-primary/10 group-hover:text-primary/20 transition-colors"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            class="w-24 h-24 transform -rotate-12"
-            ><path
-              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
-            ></path></svg
-          >
+      {[{
+        initial: 'C', author: '1', avatarClass: 'bg-blue-100 text-blue-600 border-blue-200',
+        quote: t('testimonials.1.quote'), authorName: t('testimonials.1.author'), loc: t('testimonials.1.loc')
+      }, {
+        initial: 'M', author: '2', avatarClass: 'bg-purple-100 text-purple-600 border-purple-200',
+        quote: t('testimonials.2.quote'), authorName: t('testimonials.2.author'), loc: t('testimonials.2.loc')
+      }, {
+        initial: 'J', author: '3', avatarClass: 'bg-green-100 text-green-600 border-green-200',
+        quote: t('testimonials.3.quote'), authorName: t('testimonials.3.author'), loc: t('testimonials.3.loc')
+      }].map((item, i) => (
+      <div class="card-hover p-8 relative reveal group" style={`transition-delay: ${i * 150}ms;`}>
+        <div class="absolute -top-4 -right-4 text-primary/10 group-hover:text-primary/20 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-24 h-24 transform -rotate-12">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
         </div>
-        <div class="text-[#EF9F27] flex gap-1 mb-6 relative z-10">
+        <div class="text-warning flex gap-1 mb-6 relative z-10">
           <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
         </div>
-        <p
-          class="text-dark leading-relaxed mb-10 italic relative z-10 text-lg font-medium"
-        >
-          {t('testimonials.1.quote')}
-        </p>
-        <div
-          class="flex items-center gap-4 mt-auto relative z-10 pt-6 border-t border-gray-100"
-        >
-          <div
-            class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-lg shadow-sm border border-blue-200"
-          >
-            C
-          </div>
+        <p class="text-dark leading-relaxed mb-10 italic relative z-10 text-lg font-medium">{item.quote}</p>
+        <div class="flex items-center gap-4 mt-auto relative z-10 pt-6 border-t border-gray-100">
+          <div class={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-sm border ${item.avatarClass}`}>{item.initial}</div>
           <div>
-            <p class="font-bold text-dark">{t('testimonials.1.author')}</p>
-            <p class="text-sm text-muted">{t('testimonials.1.loc')}</p>
+            <p class="font-bold text-dark">{item.authorName}</p>
+            <p class="text-sm text-muted">{item.loc}</p>
           </div>
         </div>
       </div>
-      <div
-        class="bg-white rounded-3xl p-8 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgba(83,74,183,0.1)] hover:-translate-y-2 transition-all duration-300 relative reveal group"
-        style="transition-delay: 150ms;"
-      >
-        <div
-          class="absolute -top-4 -right-4 text-primary/10 group-hover:text-primary/20 transition-colors"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            class="w-24 h-24 transform -rotate-12"
-            ><path
-              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
-            ></path></svg
-          >
-        </div>
-        <div class="text-[#EF9F27] flex gap-1 mb-6 relative z-10">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p
-          class="text-dark leading-relaxed mb-10 italic relative z-10 text-lg font-medium"
-        >
-          {t('testimonials.2.quote')}
-        </p>
-        <div
-          class="flex items-center gap-4 mt-auto relative z-10 pt-6 border-t border-gray-100"
-        >
-          <div
-            class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-lg shadow-sm border border-purple-200"
-          >
-            M
-          </div>
-          <div>
-            <p class="font-bold text-dark">{t('testimonials.2.author')}</p>
-            <p class="text-sm text-muted">{t('testimonials.2.loc')}</p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="bg-white rounded-3xl p-8 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgba(83,74,183,0.1)] hover:-translate-y-2 transition-all duration-300 relative reveal group"
-        style="transition-delay: 300ms;"
-      >
-        <div
-          class="absolute -top-4 -right-4 text-primary/10 group-hover:text-primary/20 transition-colors"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            class="w-24 h-24 transform -rotate-12"
-            ><path
-              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
-            ></path></svg
-          >
-        </div>
-        <div class="text-[#EF9F27] flex gap-1 mb-6 relative z-10">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p
-          class="text-dark leading-relaxed mb-10 italic relative z-10 text-lg font-medium"
-        >
-          {t('testimonials.3.quote')}
-        </p>
-        <div
-          class="flex items-center gap-4 mt-auto relative z-10 pt-6 border-t border-gray-100"
-        >
-          <div
-            class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-lg shadow-sm border border-green-200"
-          >
-            J
-          </div>
-          <div>
-            <p class="font-bold text-dark">{t('testimonials.3.author')}</p>
-            <p class="text-sm text-muted">{t('testimonials.3.loc')}</p>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
