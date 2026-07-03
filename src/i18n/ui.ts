@@ -19,6 +19,15 @@ export const ui = {
     'nav.signup': 'Sign Up',
     'nav.downloadApp': 'Download App',
     
+    // Section anchors
+    'section.home': 'home',
+    'section.features': 'features',
+    'section.benefits': 'benefits',
+    'section.howItWorks': 'how-it-works',
+    'section.pricing': 'pricing',
+    'section.team': 'team',
+    'section.testimonials': 'testimonials',
+    
     // Hero
     'hero.badge': '✦ Family financial management',
     'hero.title.1': 'Control your expenses, save as a family',
@@ -126,8 +135,8 @@ export const ui = {
 
     // Team
     'team.badge': 'The team',
-    'team.title': 'Built by Software Engineering students — UPC',
-    'team.subtitle': 'Startup Resolum — Term 2026-1 · Software Architecture Fundamentals',
+    'team.title': 'About the team',
+    'team.subtitle': 'Startup Resolum',
     'team.role.1': 'Scrum Master',
     'team.role.2': 'Frontend - Mobile Developer',
     'team.role.3': 'Backend - Mobile Developer',
@@ -244,6 +253,15 @@ export const ui = {
     'nav.signup': 'Regístrate',
     'nav.downloadApp': 'Descargar App',
 
+    // Section anchors
+    'section.home': 'inicio',
+    'section.features': 'funcionalidades',
+    'section.benefits': 'beneficios',
+    'section.howItWorks': 'como-funciona',
+    'section.pricing': 'planes',
+    'section.team': 'equipo',
+    'section.testimonials': 'testimonios',
+
     // Hero
     'hero.badge': '✦ Gestión financiera familiar',
     'hero.title.1': 'Controla tus gastos, ahorra en familia',
@@ -351,8 +369,8 @@ export const ui = {
 
     // Team
     'team.badge': 'El equipo',
-    'team.title': 'Construido por estudiantes de Ingeniería de Software — UPC',
-    'team.subtitle': 'Startup Resolum — Ciclo 2026-1 · Fundamentos de Arquitectura de Software',
+    'team.title': 'Sobre el equipo',
+    'team.subtitle': 'Startup Resolum',
     'team.role.scrum': 'Scrum Master / Team Lead',
     'team.role.backend': 'Backend Developer',
     'team.role.mobile': 'Mobile Developer (Android)',
