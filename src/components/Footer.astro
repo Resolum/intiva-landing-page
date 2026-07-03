@@ -10,20 +10,18 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<footer class="bg-[#0D0B1A] pt-32 pb-12 text-white/60 relative overflow-hidden">
+<footer class="bg-dark-alt section-padding pb-12 text-white/60 relative overflow-hidden">
   <div
     class="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-primary/30 to-transparent"
   >
   </div>
 
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-24 reveal"
-    >
+  <div class="container-main relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-24 reveal">
       <div class="lg:col-span-2">
         <a href={`/${lang}/`} class="inline-flex items-center gap-3 mb-8 group">
           <div
-            class="w-10 h-10 rounded-xl bg-linear-to-br from-primary to-[#433b9c] text-white flex items-center justify-center font-black text-2xl shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform"
+            class="w-10 h-10 rounded-xl bg-linear-to-br from-primary to-primary-dark text-white flex items-center justify-center font-black text-2xl shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform"
           >
             i
           </div>
