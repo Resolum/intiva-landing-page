@@ -54,7 +54,7 @@ const features = [
 ];
 ---
 
-<section id="funcionalidades" class="section-padding bg-lightbg relative overflow-hidden">
+<section id={t("section.features")} class="section-padding bg-lightbg relative overflow-hidden">
   <div class="blur-blob top-1/4 left-0 w-72 h-72 bg-primary/5 animate-blob"></div>
   <div class="blur-blob bottom-1/4 right-0 w-96 h-96 bg-accent/10 animate-blob"></div>
 
@@ -90,7 +90,7 @@ const features = [
             <p class="section-subtitle mb-8 leading-relaxed">
               {feature.description}
             </p>
-            <a href="#planes" class="btn-ghost group">
+            <a href={"#" + t("section.pricing")} class="btn-ghost group">
               {t('features.explore')}
               <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform">

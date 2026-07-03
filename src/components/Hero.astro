@@ -5,7 +5,7 @@ const t = useTranslations(lang);
 ---
 
   <section
-    id="inicio"
+    id={t("section.home")}
     class="relative bg-dark pt-28 pb-20 lg:pt-40 lg:pb-32 overflow-hidden"
   >
   <div
@@ -35,14 +35,14 @@ const t = useTranslations(lang);
 
         <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-10">
           <a
-            href="https://github.com/Resolum/Intiva-mobile-application/releases/download/v1.1.0/intiva-mobile-v1.1.apk"
+            href="https://github.com/Resolum/Intiva-mobile-application/releases/download/v2.0.0/app_v2.0.0.apk"
             target="_blank"
             rel="noopener noreferrer"
             class="btn-primary w-full sm:w-auto text-center shadow-[0_0_20px_rgba(205,235,69,0.4)] hover:shadow-[0_0_30px_rgba(205,235,69,0.6)] hover:scale-105"
           >
             {t('hero.btn.download')}
           </a>
-          <a href="#como-funciona" class="btn-secondary w-full sm:w-auto text-center">
+          <a href={"#" + t("section.howItWorks")} class="btn-secondary w-full sm:w-auto text-center">
             {t('hero.btn.how')}
           </a>
         </div>

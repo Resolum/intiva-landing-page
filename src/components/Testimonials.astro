@@ -4,7 +4,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="testimonios" class="section-padding bg-lightbg relative overflow-hidden">
+<section id={t("section.testimonials")} class="section-padding bg-lightbg relative overflow-hidden">
   <div class="blur-blob top-1/4 left-10 w-64 h-64 bg-accent/10 animate-blob"></div>
   <div class="blur-blob bottom-1/4 right-10 w-80 h-80 bg-primary/10 animate-blob"></div>
 
