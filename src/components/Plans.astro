@@ -4,7 +4,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="planes" class="section-padding bg-lightbg relative overflow-hidden">
+<section id={t("section.pricing")} class="section-padding bg-lightbg relative overflow-hidden">
   <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-bl-[100%] pointer-events-none"></div>
 
   <div class="container-main relative z-10">

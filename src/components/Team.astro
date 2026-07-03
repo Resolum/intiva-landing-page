@@ -48,7 +48,7 @@ const team = [
 ];
 ---
 
-<section id="equipo" class="section-padding bg-white relative overflow-hidden">
+<section id={t("section.team")} class="section-padding bg-white relative overflow-hidden">
   <div class="absolute top-0 right-0 w-full h-px bg-linear-to-r from-transparent via-gray-200 to-transparent"></div>
 
   <div class="container-main relative z-10">
@@ -85,10 +85,6 @@ const team = [
         <span class="text-xs text-muted font-mono">{member.code}</span>
       </div>
       ))}
-    </div>
-
-    <div class="mt-16 text-center reveal flex flex-col items-center justify-center">
-      <p class="text-muted text-sm font-medium mt-2">Startup Resolum</p>
     </div>
   </div>
 </section>
