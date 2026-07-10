@@ -16,24 +16,48 @@ const t = useTranslations(lang);
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-24 relative">
-      <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-linear-to-r from-primary/20 via-primary to-primary/20 z-0 opacity-50"></div>
-      {[{ num: '1', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.66-1.548c0 .351-.01.7-.029 1.047a4.5 4.5 0 01-1.258 3.125 4.5 4.5 0 01-3.56 1.488H6.5a4.5 4.5 0 01-2.5-.75z" /></svg>` }, { num: '2', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>` }, { num: '3', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>` }].map((step, i) => (
-      <div class="relative z-10 flex flex-col items-center text-center reveal group" style={`transition-delay: ${i * 100}ms;`}>
-        <div class="w-24 h-24 rounded-full bg-linear-to-br from-primary to-primary-dark flex items-center justify-center border-8 border-dark mb-6 text-white shadow-[0_0_30px_rgba(83,74,183,0.3)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(83,74,183,0.6)] transition-all duration-300">
-          <Fragment set:html={step.icon} />
-        </div>
-        <div class="bg-accent text-dark w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm absolute top-0 right-[20%] md:right-[25%] border-4 border-dark group-hover:bg-white transition-colors shadow-lg">{step.num}</div>
-        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{t(`how.${step.num}.title`)}</h3>
-        <p class="text-white/70 leading-relaxed max-w-xs font-medium">{t(`how.${step.num}.desc`)}</p>
+      <!-- Glowing connecting line -->
+      <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 z-0">
+        <div class="w-full h-full bg-linear-to-r from-primary/20 via-accent/50 to-primary/20 opacity-60"
+             style="box-shadow: 0 0 8px rgba(205,235,69,0.3), 0 0 20px rgba(83,74,183,0.2);"></div>
       </div>
+
+      {[{ num: '1', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>` },
+       { num: '2', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" /></svg>` },
+       { num: '3', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" /><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" /></svg>` }].map((step, i) => (
+        <div class="relative z-10 flex flex-col items-center text-center reveal group" style={`transition-delay: ${i * 100}ms;`}>
+          <!-- 3D numbered sphere -->
+          <div class="relative mb-6">
+            <div class="w-24 h-24 rounded-full bg-linear-to-br from-primary-light via-primary to-primary-dark flex items-center justify-center text-white animate-float-slow object-3d"
+                 style="transform-style: preserve-3d; animation-delay: ${i * 0.5}s;
+                   box-shadow:
+                     0 0 0 2px rgba(255,255,255,0.1) inset,
+                     0 0 40px rgba(83,74,183,0.3),
+                     0 10px 30px rgba(0,0,0,0.3);">
+              <Fragment set:html={step.icon} />
+            </div>
+            <!-- 3D depth ring -->
+            <div class="absolute inset-0 rounded-full translate-z-[-4px] bg-primary-dark/50"
+                 style="transform: translateZ(-4px); filter: blur(1px);"></div>
+            <!-- Number badge with 3D depth -->
+            <div class="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-accent flex items-center justify-center font-bold text-dark text-sm object-3d z-20"
+                 style="box-shadow: 0 4px 12px rgba(205,235,69,0.4), 0 0 0 2px rgba(255,255,255,0.1) inset;">
+              {step.num}
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{t(`how.${step.num}.title`)}</h3>
+          <p class="text-white/70 leading-relaxed max-w-xs font-medium">{t(`how.${step.num}.desc`)}</p>
+        </div>
       ))}
     </div>
+
     <div class="max-w-[720px] mx-auto rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative bg-gray-900 aspect-video mb-16 reveal border border-white/10 flex flex-col items-center">
       <iframe class="w-full h-full" src="https://www.youtube.com/embed/gxQdP6pmrrU" title="Intiva Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <div class="mt-4 mb-4 text-center">
         <span class="text-white font-medium bg-black/40 px-6 py-2 rounded-full backdrop-blur-md border border-white/10 tracking-wide text-sm">{t('how.video')}</span>
       </div>
     </div>
+
     <div class="text-center reveal mt-12">
       <a href="https://play.google.com/store/apps/details?id=com.resolum.intiva" target="_blank" rel="noopener noreferrer" class="btn-primary inline-block shadow-[0_0_20px_rgba(205,235,69,0.4)] hover:shadow-[0_0_30px_rgba(205,235,69,0.6)] hover:scale-105">
         {t('how.btn')}

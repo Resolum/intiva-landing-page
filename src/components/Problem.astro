@@ -2,50 +2,130 @@
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const trustItems = [
+  {
+    title: t('trust.1.title'),
+    desc: t('trust.1.desc'),
+    icon3d: `<svg viewBox="0 0 64 64" fill="none" class="w-9 h-9">
+      <defs>
+        <linearGradient id="shG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#7B75D0"/>
+          <stop offset="100%" stop-color="#3D35A0"/>
+        </linearGradient>
+      </defs>
+      <path d="M32 8L12 16v12c0 14.4 8.64 24.8 20 28 11.36-3.2 20-13.6 20-28V16L32 8z" fill="url(#shG)"/>
+      <path d="M32 8L12 16v12c0 14.4 8.64 24.8 20 28 11.36-3.2 20-13.6 20-28V16L32 8z" fill="#000" opacity="0.08"/>
+      <path d="M24 34l6 6 10-12" stroke="#CDEB45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="28" y="38" width="8" height="2" rx="1" fill="#CDEB45" opacity="0.3"/>
+    </svg>`,
+    iconBg: 'bg-primary/10',
+    shadowColor: 'rgba(83,74,183,0.15)'
+  },
+  {
+    title: t('trust.2.title'),
+    desc: t('trust.2.desc'),
+    icon3d: `<svg viewBox="0 0 64 64" fill="none" class="w-9 h-9">
+      <defs>
+        <linearGradient id="mgG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#CDEB45"/>
+          <stop offset="100%" stop-color="#B8D43C"/>
+        </linearGradient>
+      </defs>
+      <circle cx="32" cy="32" r="22" fill="url(#mgG)" opacity="0.15"/>
+      <circle cx="32" cy="32" r="18" fill="url(#mgG)" opacity="0.1"/>
+      <circle cx="32" cy="32" r="20" fill="none" stroke="url(#mgG)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.4"/>
+      <circle cx="32" cy="32" r="4" fill="#534AB7"/>
+      <line x1="32" y1="18" x2="32" y2="30" stroke="#534AB7" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="32" y1="30" x2="40" y2="34" stroke="#534AB7" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="50" cy="18" r="3" fill="#CDEB45" opacity="0.3"/>
+      <circle cx="14" cy="48" r="2" fill="#CDEB45" opacity="0.2"/>
+    </svg>`,
+    iconBg: 'bg-accent/10',
+    shadowColor: 'rgba(205,235,69,0.15)'
+  },
+  {
+    title: t('trust.3.title'),
+    desc: t('trust.3.desc'),
+    icon3d: `<svg viewBox="0 0 64 64" fill="none" class="w-9 h-9">
+      <defs>
+        <linearGradient id="lockG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#7B75D0"/>
+          <stop offset="100%" stop-color="#534AB7"/>
+        </linearGradient>
+      </defs>
+      <rect x="18" y="30" width="28" height="22" rx="4" fill="url(#lockG)"/>
+      <rect x="18" y="30" width="28" height="22" rx="4" fill="#000" opacity="0.05"/>
+      <path d="M24 30V22c0-4.42 3.58-8 8-8s8 3.58 8 8v8" stroke="url(#lockG)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="32" cy="42" r="4" fill="#CDEB45" opacity="0.8"/>
+      <rect x="30" y="42" width="4" height="5" rx="1" fill="#3D35A0"/>
+      <circle cx="48" cy="22" r="3" fill="#CDEB45" opacity="0.2"/>
+    </svg>`,
+    iconBg: 'bg-primary/10',
+    shadowColor: 'rgba(83,74,183,0.15)'
+  },
+  {
+    title: t('trust.4.title'),
+    desc: t('trust.4.desc'),
+    icon3d: `<svg viewBox="0 0 64 64" fill="none" class="w-9 h-9">
+      <defs>
+        <linearGradient id="cloudG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#CDEB45"/>
+          <stop offset="100%" stop-color="#B8D43C"/>
+        </linearGradient>
+        <linearGradient id="arrowG" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="#534AB7"/>
+          <stop offset="100%" stop-color="#7B75D0"/>
+        </linearGradient>
+      </defs>
+      <path d="M18 40c-3.3 0-6-2.7-6-6 0-3.3 2.7-6 6-6 0-4.4 3.6-8 8-8 1.8 0 3.5.6 4.9 1.7C32.2 17.6 35.8 16 40 16c5.5 0 10 4.5 10 10 0 .3 0 .6-.1.9C52.5 27.3 55 30.3 55 34c0 4.4-3.6 8-8 8H18z" fill="url(#cloudG)" opacity="0.9"/>
+      <path d="M18 40c-3.3 0-6-2.7-6-6 0-3.3 2.7-6 6-6 0-4.4 3.6-8 8-8 1.8 0 3.5.6 4.9 1.7C32.2 17.6 35.8 16 40 16c5.5 0 10 4.5 10 10 0 .3 0 .6-.1.9C52.5 27.3 55 30.3 55 34c0 4.4-3.6 8-8 8H18z" fill="#000" opacity="0.05"/>
+      <path d="M34 28v12m0 0l-4-4m4 4l4-4" stroke="url(#arrowG)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="14" cy="28" r="2" fill="#534AB7" opacity="0.3"/>
+      <circle cx="50" cy="44" r="2.5" fill="#534AB7" opacity="0.2"/>
+    </svg>`,
+    iconBg: 'bg-accent/10',
+    shadowColor: 'rgba(205,235,69,0.15)'
+  }
+];
+
+const stats = [
+  { value: t('trust.stat.1'), label: t('trust.stat.1.label') },
+  { value: t('trust.stat.2'), label: t('trust.stat.2.label') },
+  { value: t('trust.stat.3'), label: t('trust.stat.3.label') }
+];
 ---
 
-<section class="section-padding bg-white relative overflow-hidden">
-  <div class="absolute top-0 right-0 w-full h-1/2 bg-linear-to-b from-lightbg to-transparent pointer-events-none"></div>
+<section id="seguridad" class="section-padding bg-white relative overflow-hidden">
+  <div class="blur-blob top-1/4 right-0 w-72 h-72 bg-primary/5 animate-blob pointer-events-none"></div>
 
   <div class="container-main relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-20 reveal">
-      <span class="badge badge-primary">{t('problem.badge')}</span>
+      <span class="badge badge-primary">{t('trust.badge')}</span>
       <h2 class="section-title mt-4">
-        {t('problem.title.1')} <span class="gradient-text">{t('problem.title.2')}</span>
+        {t('trust.title.1')} <span class="gradient-text">{t('trust.title.2')}</span>
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {['primary', 'warning', 'success'].map((color, index) => {
-        const cardColors = {
-          primary: {
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>`,
-            item: '1',
-            shadowColor: '83,74,183'
-          },
-          warning: {
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M3 3l18 18" /></svg>`,
-            item: '2',
-            shadowColor: '239,159,39'
-          },
-          success: {
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /><line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>`,
-            item: '3',
-            shadowColor: '29,158,117'
-          }
-        };
-        const c = cardColors[color];
-        return (
-      <div class="card-hover p-8 reveal group relative overflow-hidden" style={`transition-delay: ${index * 100}ms;`}>
-        <div class={`absolute top-0 right-0 w-32 h-32 bg-${color}/5 rounded-full filter blur-2xl group-hover:bg-${color}/10 transition-colors`}></div>
-        <div class={`w-16 h-16 bg-${color}/10 rounded-2xl flex items-center justify-center text-${color} mb-8 group-hover:scale-110 transition-transform duration-300 relative z-10`}>
-          <Fragment set:html={c.icon} />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 scene-3d">
+      {trustItems.map((item, index) => (
+        <div class="card-hover p-8 reveal flex flex-col items-start tilt-hover" style={`transition-delay: ${index * 100}ms;`}>
+          <div class={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shrink-0 group-hover:scale-110 transition-transform duration-300 ${item.iconBg} shadow-[0_0_30px_${item.shadowColor}]`} set:html={item.icon3d}>
+          </div>
+          <h3 class="text-xl font-bold text-dark mb-3">{item.title}</h3>
+          <p class="text-muted leading-relaxed font-medium">{item.desc}</p>
         </div>
-        <h3 class="text-xl font-bold text-dark mb-4 relative z-10">{t(`problem.${c.item}.title`)}</h3>
-        <p class="text-muted leading-relaxed font-medium relative z-10">{t(`problem.${c.item}.desc`)}</p>
-      </div>
-        );
-      })}
+      ))}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto reveal">
+      {stats.map((stat) => (
+        <div class="text-center p-8 rounded-3xl bg-lightbg border border-border relative overflow-hidden">
+          <div class="sphere-3d absolute -top-6 -right-6 w-16 h-16 opacity-20" style="background: radial-gradient(circle at 30% 25%, var(--color-primary-light), var(--color-primary));"></div>
+          <p class="text-4xl md:text-5xl font-black text-dark font-display mb-2 relative z-10">{stat.value}</p>
+          <p class="text-sm text-muted font-medium uppercase tracking-widest relative z-10">{stat.label}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>
