@@ -6,6 +6,8 @@ const t = useTranslations(lang);
 
 <section id={t("section.pricing")} class="section-padding bg-lightbg relative overflow-hidden">
   <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-bl-[100%] pointer-events-none"></div>
+  <div class="sphere-3d absolute -top-10 -left-10 w-32 h-32 opacity-15 animate-float-slow pointer-events-none" style="background: radial-gradient(circle at 30% 25%, var(--color-accent), var(--color-accent-dark));"></div>
+  <div class="sphere-3d absolute bottom-20 right-10 w-24 h-24 opacity-10 animate-float pointer-events-none" style="animation-delay: 2s;"></div>
 
   <div class="container-main relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-20 reveal">
@@ -40,8 +42,8 @@ const t = useTranslations(lang);
         </ul>
       </div>
 
-      <div class="card-hover p-8 border-2 border-accent shadow-lg relative transform md:-translate-y-4 reveal group" style="transition-delay: 150ms;">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-dark px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg shadow-accent/20">
+      <div class="card-hover p-8 border-2 border-accent/40 shadow-[0_20px_60px_rgba(83,74,183,0.15)] relative transform md:-translate-y-4 reveal group hover:scale-[1.02] hover:shadow-[0_30px_80px_rgba(83,74,183,0.2)] transition-all duration-500" style="transition-delay: 150ms;">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-dark px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-[0_4px_20px_rgba(205,235,69,0.4)] z-10 animate-float" style="animation-delay: 1s;">
           {t('plans.popular')}
         </div>
         <h3 class="text-2xl font-bold text-dark mb-2">{t('plans.premium.title')}</h3>
